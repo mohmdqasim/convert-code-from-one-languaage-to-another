@@ -31,20 +31,12 @@ def main():
 
         # Dropdown menu for selecting programming language
         output_language = st.selectbox("Select Output Language", languages)
-
+        if st.button('Convert'):
         # Get LLM result
-        llm_result = get_llm_result(input_language, user_code, output_language)
+            llm_result = get_llm_result(input_language, user_code, output_language)
 
         # Output container with fixed height and scroll
-        st.markdown(llm_result, unsafe_allow_html=True)
-        # right_col.markdown(
-        #     f"""
-        #     <div style="border: 1px solid #ccc; padding: 10px; height: 300px; overflow-y: scroll;">
-        #         {right_col.markdown(llm_result)}
-        #     </div>
-        #     """,
-        #     unsafe_allow_html=True,
-        # )
+            st.markdown(llm_result, unsafe_allow_html=True)
 
 if __name__ == "__main__":
     main()
